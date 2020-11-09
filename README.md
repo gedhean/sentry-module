@@ -41,7 +41,7 @@ See [Options](#options) for a list of available options
 
 ## Usage
 
-Enter your DSN in the Nuxt.js config file. Additional config settings can be found [here](https://docs.sentry.io/error-reporting/configuration/?platform=browser).
+Enter your DSN in the Nuxt.js config file. Additional config options can be found [here](https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/).
 
 ### Usage in Vue components
 
@@ -334,7 +334,7 @@ Normally, setting required DSN information would be enough.
   - Default: `{
     environment: this.options.dev ? 'development' : 'production'
   }`
-  - Sentry options common to the server and client that are passed to `Sentry.init(options)`. See Sentry documentation at https://docs.sentry.io/error-reporting/configuration/?platform=browsernpm
+  - Sentry options common to the server and client that are passed to `Sentry.init(options)`. See Sentry documentation at https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/
   - Note that `config.dsn` is automatically set based on the root `dsn` option
   - The value for `config.release` is automatically inferred from the local repo unless specified manually
 
@@ -354,7 +354,13 @@ Normally, setting required DSN information would be enough.
 - Type: `Object`
   - Default: Refer to `module.js` since defaults include various options that also change dynamically based on other options.
   - Options passed to `@sentry/webpack-plugin`. See documentation at https://github.com/getsentry/sentry-webpack-plugin/blob/master/README.md
-
+  
+### requestHandlerConfig
+- Type: `Object`
+  - Default: `{
+  }`
+  - Options passed to `requestHandler` in `@sentry/node`. See: https://docs.sentry.io/platforms/node/guides/express/
+  
 ## Submitting releases to Sentry
 Support for the [sentry-webpack-plugin](https://github.com/getsentry/sentry-webpack-plugin) was introduced [#a6cd8d3](https://github.com/nuxt-community/sentry-module/commit/a6cd8d3b983b4c6659e985736b19dc771fe7c9ea). This can be used to send releases to Sentry. Use the publishRelease  option to enable this feature.
 
